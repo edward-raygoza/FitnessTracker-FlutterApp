@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; // has lots of built in widgets, also has base class allowing you to create own widgets
 import 'myHomePage.dart';
+import 'bottomNavBar.dart';
 
 //use ctrl+space to get list
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: NavigationBar(),
     );
   }
 }

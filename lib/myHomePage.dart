@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'drawerList.dart';
+import 'bottomNavBar.dart';
 import 'textInput.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -34,33 +36,35 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.blue[175],
         elevation: 0,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text(
-                'Fitness Tracker',
-                style: TextStyle(fontSize: 26.0),
-              ),
-              currentAccountPicture: CircleAvatar(
-                child: FlutterLogo(size: 70.0),
-                backgroundColor: Colors.green[100],
-              ),
-              accountEmail: null,
-            ),
-            SizedBox(height: 10.0),
-            ListTile(
-              title: Text('Nutrition'),
-              onTap: () => Navigator.of(context).push(_NewPage(1)), //{
-              // setState(() {
-              //   mainWidget = Item1();
-              // });
-              //},
-            ),
-          ],
-        ),
-      ),
+      //bottomNavigationBar: NavigationBar(),
+      //drawer: MyDrawerList(),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       UserAccountsDrawerHeader(
+      //         accountName: Text(
+      //           'Fitness Tracker',
+      //           style: TextStyle(fontSize: 26.0),
+      //         ),
+      //         currentAccountPicture: CircleAvatar(
+      //           child: FlutterLogo(size: 70.0),
+      //           backgroundColor: Colors.green[100],
+      //         ),
+      //         accountEmail: null,
+      //       ),
+      //       SizedBox(height: 10.0),
+      //       ListTile(
+      //         title: Text('Nutrition'),
+      //         onTap: () => Navigator.of(context).push(_NewPage(1)), //{
+      //         // setState(() {
+      //         //   mainWidget = Item1();
+      //         // });
+      //         //},
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
         child: Column(
@@ -166,15 +170,15 @@ class _MyHomePageState extends State<MyHomePage> {
 //   }
 // }
 
-class _NewPage extends MaterialPageRoute<Null> {
-  _NewPage(int id)
-      : super(builder: (BuildContext context) {
-          return Scaffold(
-              appBar: AppBar(
-                title: Text('Page $id'),
-              ),
-              body: Center(
-                child: Text('Page $id'),
-              ));
-        });
-}
+// class _NewPage extends MaterialPageRoute<Null> {
+//   _NewPage(int id)
+//       : super(builder: (BuildContext context) {
+//           return Scaffold(
+//               appBar: AppBar(
+//                 title: Text('Page $id'),
+//               ),
+//               body: Center(
+//                 child: Text('Page $id'),
+//               ));
+//         });
+// }
