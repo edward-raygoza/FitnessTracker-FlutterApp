@@ -6,6 +6,7 @@ import 'drawerList.dart';
 import 'bottomNavBar.dart';
 import 'textInput.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -27,9 +28,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[400],
+      backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
-        title: Text('Fitness Tracker'),
+        title: Text(
+          'Fitness Tracker',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blue[800],
         elevation: 0,
@@ -47,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                         color: Colors.grey[900],
                         letterSpacing: 3.0,
-                        fontSize: 20.0,
+                        fontSize: 30.0,
                       )),
                   //),
                   SizedBox(height: 5.0),
@@ -61,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                           color: Colors.grey[900],
                           letterSpacing: 3.0,
-                          fontSize: 18.0,
+                          fontSize: 25.0,
                           fontWeight: FontWeight.bold,
                         )),
                   ),
@@ -89,8 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 //SizedBox(height: 20.0),
               ],
             ),
-            SizedBox(height: 40.0),
-            Text('data'),
+            SizedBox(height: 20.0),
+            //Text('data'),
             //Container(
             //height: 50.0,
             // SfRadialGauge(axes: <RadialAxis>[
@@ -108,6 +112,47 @@ class _MyHomePageState extends State<MyHomePage> {
             //   )
             // ]),
             //),
+            Text('CALORIES',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
+            SizedBox(height: 2.0),
+            CircularPercentIndicator(
+              //center: Text('300/400'),
+              progressColor: Colors.purple,
+              percent: 0.5,
+              animation: true,
+              radius: 120.0,
+              lineWidth: 15.0,
+            ),
+            SizedBox(height: 20.0),
+            Text('PROTEIN',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
+            SizedBox(height: 5.0),
+            LinearPercentIndicator(
+              progressColor: Colors.yellowAccent,
+              percent: 0.5,
+              animation: true,
+              lineHeight: 10.0,
+            ),
+            SizedBox(height: 20.0),
+            Text('CARBS',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
+            SizedBox(height: 5.0),
+            LinearPercentIndicator(
+              progressColor: Colors.redAccent,
+              percent: 0.5,
+              animation: true,
+              lineHeight: 10.0,
+            ),
+            SizedBox(height: 20.0),
+            Text('FATS',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
+            SizedBox(height: 5.0),
+            LinearPercentIndicator(
+              progressColor: Colors.greenAccent,
+              percent: 0.5,
+              animation: true,
+              lineHeight: 10.0,
+            ),
           ],
         ),
       ),
