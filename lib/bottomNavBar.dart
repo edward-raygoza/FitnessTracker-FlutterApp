@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthapp/myHomePage.dart';
+import 'package:healthapp/foodEntry.dart';
 //import 'myHomePage.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -10,12 +11,15 @@ class NavigationBar extends StatefulWidget {
 class _NavigationBarState extends State<NavigationBar> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(),
+    /* The folloding 3 functions  */
+    MyHomePage(), //0
     //Text('home'),
-    Text('Messages'),
-    Text('houses'),
+    FoodEntry(),
+    //Text('Implement'), //1
+    Text('Implement'), //2
   ];
 
+//tap function
   void _onItemTap(int index) {
     setState(() {
       _selectedIndex = index;
@@ -25,26 +29,26 @@ class _NavigationBarState extends State<NavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('test'),
-      // ),
-      //body: Text('Home'),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        //list of options at botton of navigation bar
         items: const <BottomNavigationBarItem>[
+          //Home
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('hel'),
+            title: Text('Home'),
           ),
+          //Food Entry
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            title: Text('Food Entry'),
+          ),
+          //third option
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
-            title: Text('hi'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            title: Text('hi'),
+            title: Text('third option'),
           ),
         ],
         currentIndex: _selectedIndex,

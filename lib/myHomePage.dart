@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'drawerList.dart';
 import 'bottomNavBar.dart';
 import 'textInput.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //used to select image on first page
   File _image;
   final ImagePicker _picker = ImagePicker();
   Future _getImage() async {
@@ -25,160 +27,90 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Colors.blue[400],
       appBar: AppBar(
-        // leading: IconButton(
-        //   icon: Icon(Icons.list),
-        //   onPressed: () {},
-        // ),
         title: Text('Fitness Tracker'),
         centerTitle: true,
-        backgroundColor: Colors.blue[175],
+        backgroundColor: Colors.blue[800],
         elevation: 0,
       ),
-      //bottomNavigationBar: NavigationBar(),
-      //drawer: MyDrawerList(),
-      // drawer: Drawer(
-      //   child: ListView(
-      //     padding: EdgeInsets.zero,
-      //     children: <Widget>[
-      //       UserAccountsDrawerHeader(
-      //         accountName: Text(
-      //           'Fitness Tracker',
-      //           style: TextStyle(fontSize: 26.0),
-      //         ),
-      //         currentAccountPicture: CircleAvatar(
-      //           child: FlutterLogo(size: 70.0),
-      //           backgroundColor: Colors.green[100],
-      //         ),
-      //         accountEmail: null,
-      //       ),
-      //       SizedBox(height: 10.0),
-      //       ListTile(
-      //         title: Text('Nutrition'),
-      //         onTap: () => Navigator.of(context).push(_NewPage(1)), //{
-      //         // setState(() {
-      //         //   mainWidget = Item1();
-      //         // });
-      //         //},
-      //       ),
-      //     ],
-      //   ),
-      // ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
+      body: Container(
+        padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            // Container(
-            //   child: Stack(
-            //     children: <Widget>[
-            //       Align(
-            //         alignment: Alignment.topRight,
-            //         child: Icon(Icons.edit),
-            //       ),
-            //       Container(
-            //         //customBorder: new CircleBorder(),
-            //         //onTap: () {},
-            //         child: CircleAvatar(
-            //           radius: 80.0,
-            //           backgroundImage:
-            //               NetworkImage('https://via.placeholder.com/150'),
-            //           backgroundColor: Colors.transparent,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            //Center(
-
-            GestureDetector(
-              onTap: _getImage, //{
-              //print('add image');
-              //},
-              child: CircleAvatar(
-                //color: Colors.black12,
-                radius: 80.0,
-                child: _image == null
-                    ? Icon(
-                        FontAwesomeIcons.plus,
-                        size: 70.0,
-                        color: Colors.black,
-                      )
-                    : new CircleAvatar(
-                        backgroundImage: new FileImage(_image),
-                        radius: 300.0,
-                      ),
-                backgroundColor: Colors.grey[500],
-              ),
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(children: [
+                  //Center(
+                  Text('Hello,',
+                      style: TextStyle(
+                        color: Colors.grey[900],
+                        letterSpacing: 3.0,
+                        fontSize: 20.0,
+                      )),
+                  //),
+                  SizedBox(height: 5.0),
+                  //Center(
+                  Container(
+                    width: 170.0,
+                    child: TextField(
+                        decoration: new InputDecoration.collapsed(
+                            hintText: 'Enter Name'),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.grey[900],
+                          letterSpacing: 3.0,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ),
+                  //),
+                ]),
+                SizedBox(width: 5.0),
+                GestureDetector(
+                  onTap: _getImage,
+                  child: CircleAvatar(
+                    radius: 80.0,
+                    child: _image == null
+                        ? Icon(
+                            FontAwesomeIcons
+                                .userCircle, //usercircle || userplus
+                            size: 70.0,
+                            color: Colors.black,
+                          )
+                        : new CircleAvatar(
+                            backgroundImage: new FileImage(_image),
+                            radius: 300.0,
+                          ),
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+                //SizedBox(height: 20.0),
+              ],
             ),
-
-            // InkWell(
-            //   customBorder: new CircleBorder(),
-            //   onTap: () {},
-            //   // Align(alignment: Alignment.topRight,
-            //   // child:Icon(Icons.edit),),
-            //   child: CircleAvatar(
-            //     radius: 80.0,
-            //     backgroundImage: ,
-            //     backgroundColor: Colors.transparent,
-            //   ),
-            // ),
+            SizedBox(height: 40.0),
+            Text('data'),
+            //Container(
+            //height: 50.0,
+            // SfRadialGauge(axes: <RadialAxis>[
+            //   RadialAxis(
+            //     minimum: 0,
+            //     maximum: 100,
+            //     showLabels: false,
+            //     showTicks: false,
+            //     axisLineStyle: AxisLineStyle(
+            //       thickness: 0.2,
+            //       cornerStyle: CornerStyle.bothCurve,
+            //       color: Color.fromARGB(30, 0, 169, 181),
+            //       thicknessUnit: GaugeSizeUnit.factor,
+            //     ),
+            //   )
+            // ]),
             //),
-            // Divider(
-            //   height: 20.0,
-            //   color: Colors.blue[600],
-            // ),
-            SizedBox(height: 20.0),
-            Center(
-              child: Text('Hello,',
-                  style: TextStyle(
-                    color: Colors.grey[900],
-                    letterSpacing: 3.0,
-                    fontSize: 20.0,
-                  )),
-            ),
-            SizedBox(height: 5.0),
-            Center(
-              child: TextField(
-                  decoration:
-                      // InputDecoration(
-                      //   prefixIcon: Icon(Icons.),
-                      // ),
-                      new InputDecoration.collapsed(hintText: 'Enter Name'),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey[900],
-                    letterSpacing: 3.0,
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
           ],
         ),
       ),
     );
   }
 }
-
-// class Item1 extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Text('item 1'),
-//     );
-//   }
-// }
-
-// class _NewPage extends MaterialPageRoute<Null> {
-//   _NewPage(int id)
-//       : super(builder: (BuildContext context) {
-//           return Scaffold(
-//               appBar: AppBar(
-//                 title: Text('Page $id'),
-//               ),
-//               body: Center(
-//                 child: Text('Page $id'),
-//               ));
-//         });
-// }
